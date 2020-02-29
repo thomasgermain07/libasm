@@ -6,7 +6,7 @@
 #    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/28 12:46:59 by thgermai          #+#    #+#              #
-#    Updated: 2020/02/28 15:10:11 by thgermai         ###   ########.fr        #
+#    Updated: 2020/02/29 15:15:52 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ $(NAME): $(OBJS)
 	@(ar rcs $(NAME) $(OBJS))
 
 ex:
+	@(make)
 	@(gcc -Wall -Wextra -Werror main.c $(NAME))
 	@(./a.out)
 
