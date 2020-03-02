@@ -5,11 +5,11 @@ _ft_strcmp:
 			jmp			start
 
 diff_pos:
-			sub			al, [rsi +rcx]
+			sub			al, [rsi + rcx]
 			jmp			return
 
 diff_neg:
-			sub			al, [rsi +rcx]
+			sub			al, [rsi + rcx]
 			neg			al
 			neg			rax
 			jmp			return
@@ -17,6 +17,10 @@ diff_neg:
 start:
 			inc			rcx
 			mov			al, [rdi + rcx]
+			cmp			byte [rdi + rcx], 0
+			je			diff_neg
+			cmp			byte [rsi + rcx], 0
+			je			diff_pos
 			cmp			al, [rsi + rcx]
 			je			start
 			jg			diff_pos

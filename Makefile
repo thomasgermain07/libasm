@@ -6,7 +6,7 @@
 #    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/28 12:46:59 by thgermai          #+#    #+#              #
-#    Updated: 2020/02/29 15:15:52 by thgermai         ###   ########.fr        #
+#    Updated: 2020/03/02 15:44:56 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,12 @@ OBJS_PATH = .objs
 SRCS_PATH = srcs
 SRCS = ft_strlen.s\
 		ft_strcpy.s\
-		ft_strcmp.s
+		ft_strcmp.s\
+		ft_write.s
 OBJS = $(addprefix $(OBJS_PATH)/, $(SRCS:.s=.o))
 DPDCS = $(OBJS:.o=.d)
+LOGFILE = $(LOGPATH) `date +'%y.%m.%d %H:%M:%S'`
+MSG = ---
 
 opti:
 	@(make -j all)
@@ -47,5 +50,10 @@ clean:
 fclean: clean
 	@(rm -rf $(OBJS_PATH))
 	@(rm -f $(NAME))
+
+git : fclean
+	@(git add *)
+	@(git commit -m "$(LOGFILE) : $(MSG)")
+	@(git push)
 
 re: fclean all
