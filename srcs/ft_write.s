@@ -12,4 +12,3 @@ _ft_write:
 
 return:
 			ret
-
