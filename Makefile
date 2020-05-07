@@ -39,7 +39,7 @@ $(NAME): $(OBJS)
 ex:
 	@(make)
 	@(gcc $(CLFAGS) main.c $(NAME))
-	@(./a.out)
+	@(./a.out test.txt)
 
 debug:
 	@(make)
