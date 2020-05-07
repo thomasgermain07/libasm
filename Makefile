@@ -34,8 +34,8 @@ all: $(NAME)
 -include $(DPDCS)
 
 $(NAME): $(OBJS)
-	@(ar rcs $(NAME) $(OBJS))
-
+	@(ar rc $(NAME) $(OBJS))
+	@(ranlib $(NAME))
 ex:
 	@(make)
 	@(gcc $(CLFAGS) main.c $(NAME))
@@ -48,7 +48,7 @@ debug:
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.s | $(OBJS_PATH)
 	@(echo "Compiling -> $^")
-	@(nasm -fmacho64 $< -o $@ -MD $(@:.o=.d))
+	@(nasm -felf64 $< -o $@ -MD $(@:.o=.d))
 
 $(OBJS_PATH):
 	@(mkdir .objs)

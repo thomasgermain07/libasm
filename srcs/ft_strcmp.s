@@ -1,30 +1,32 @@
-			global		_ft_strcmp
-			section		.text
-_ft_strcmp:
-			mov			rcx, -1
-			jmp			start
+global	ft_strcmp
+section	.text
 
-diff_pos:
-			sub			al, [rsi + rcx]
-			jmp			return
-
-diff_neg:
-			sub			al, [rsi + rcx]
-			neg			al
-			neg			rax
-			jmp			return
+ft_strcmp:
+	mov		rcx, -1
+	jmp 		start
 
 start:
-			inc			rcx
-			mov			al, [rdi + rcx]
-			cmp			byte [rdi + rcx], 0
-			je			diff_neg
-			cmp			byte [rsi + rcx], 0
-			je			diff_pos
-			cmp			al, [rsi + rcx]
-			je			start
-			jg			diff_pos
-			jnge		diff_neg
+	inc		rcx
+	mov 		al, [rdi + rcx]
+	cmp 		al, 0x00
+	je 		neg
+	cmp		byte[rsi + rcx], 0x00
+	je		pos
+	cmp		al, [rsi + rcx]
+	je 		start
+	jg 		pos
+	jnge		neg
+
+pos:
+	mov 		rax, 0x01
+	ret
+
+neg:
+	cmp		byte[rsi + rcx], 0x00
+	je		return
+	mov 		rax, 0xFFFFFFFFF
+	ret
 
 return:
-			ret
+	mov 		rax, 0x00
+	ret

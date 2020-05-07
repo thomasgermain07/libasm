@@ -1,14 +1,17 @@
-			global		_ft_write
-			extern		_ft_strlen
+global	ft_write
+section .text
+extern __errno_location
 
-			section		.text
-_ft_write:
-			call		_ft_strlen
-			mov			rdx, rax
-			mov			rsi, rdi
-			mov			rdi, 1
-			mov			rax, 0x02000004
-			syscall
+ft_write:
+	jmp 		start
 
-return:
-			ret
+start:
+	mov 		rax, 0x01
+	syscall
+	cmp 		rax, 0x00
+	jl 		error
+	ret
+
+error:
+	call __errno_location
+	ret

@@ -1,16 +1,19 @@
-			global		_ft_read
+global	_ft_read
+section .text
 
-			section		.text
+ft_read:
+	jmp 		start
 
-_ft_read:
-			mov			rax, 0x02000003
-			syscall
-			jc			failed
-			jmp			return
+start:
+	mov 		rax, 0x02000003
+	syscall
+	jc 		error
+	jmp 		return
 
-failed:
-			mov			rax, -1
-			call		return
+error:
+	mov 		rax, -1
+	jmp 		return
+
 return:
-			ret
-
+	ret
+		
