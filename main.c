@@ -166,7 +166,7 @@ void			check_ft_read()
 	char		buffer[30];
 	char		ft_buffer[30];
 
-	printf("\n\t\t ----- FT_STRCMP -----\n");
+	printf("\n\t\t ----- FT_READ -----\n");
 
 	for (int i = 0; i < 3; i++)
 	{
