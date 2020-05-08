@@ -32,8 +32,26 @@ void			check_ft_strlen()
 	printf("str -> '%s'\n", str);
 	printf("   strlen: %d\n", (int)strlen(str));
 	printf("ft_strlen: %d\n\n", (int)ft_strlen(str));
+	printf("\n\t\t ----- END -----\n\n");
 }
 
+void			check_ft_strcpy()
+{
+	char		*src;
+	char		*dest;
+	char		*ft_src;
+	char		*ft_dest;
+
+	printf("\n\t\t ----- FT_STRCPY -----\n");
+	src = strdup("Bonsoir");
+	dest = strdup("A toute et a tous");
+	ft_src = strdup("Bonsoir");
+	ft_dest = strdup("A toute et a tous");
+	strcpy(dest, src);
+	ft_strcpy(ft_dest, ft_src);
+	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+	printf("\n\t\t ----- END -----\n\n");
+}
 
 int				main(int argc, char **argv)
 {
