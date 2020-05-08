@@ -37,16 +37,54 @@ void			check_ft_strlen()
 
 void			check_ft_strcpy()
 {
+	char		*src_text;
+	char		*dest_text;
 	char		*src;
 	char		*dest;
 	char		*ft_src;
 	char		*ft_dest;
 
 	printf("\n\t\t ----- FT_STRCPY -----\n");
-	src = strdup("Bonsoir");
-	dest = strdup("A toute et a tous");
-	ft_src = strdup("Bonsoir");
-	ft_dest = strdup("A toute et a tous");
+	src_text = "Bonsoir";
+	dest_text = "A toute et a tous";
+	printf("src -> '%s' : dest -> '%s'\n", src_text, dest_text);
+	src = strdup(src_text);
+	dest = strdup(dest_text);
+	ft_src = strdup(src_text);
+	ft_dest = strdup(dest_text);
+	strcpy(dest, src);
+	ft_strcpy(ft_dest, ft_src);
+	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+
+	src_text = "A toute et a tous";
+	dest_text = "Bonsoir";
+	printf("src -> '%s' : dest -> '%s'\n", src_text, dest_text);
+	src = strdup(src_text);
+	dest = strdup(dest_text);
+	ft_src = strdup(src_text);
+	ft_dest = strdup(dest_text);
+	strcpy(dest, src);
+	ft_strcpy(ft_dest, ft_src);
+	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+
+	src_text = "";
+	dest_text = "Bonsoir";
+	printf("src -> '%s' : dest -> '%s'\n", src_text, dest_text);
+	src = strdup(src_text);
+	dest = strdup(dest_text);
+	ft_src = strdup(src_text);
+	ft_dest = strdup(dest_text);
+	strcpy(dest, src);
+	ft_strcpy(ft_dest, ft_src);
+	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+
+	src_text = "Bonsoir";
+	dest_text = "";
+	printf("src -> '%s' : dest -> '%s'\n", src_text, dest_text);
+	src = strdup(src_text);
+	dest = strdup(dest_text);
+	ft_src = strdup(src_text);
+	ft_dest = strdup(dest_text);
 	strcpy(dest, src);
 	ft_strcpy(ft_dest, ft_src);
 	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
