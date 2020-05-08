@@ -54,7 +54,7 @@ void			check_ft_strcpy()
 	ft_dest = strdup(dest_text);
 	strcpy(dest, src);
 	ft_strcpy(ft_dest, ft_src);
-	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+	printf("   strcpy: %s\nft_strcpy: %s\n\n", dest, ft_dest);
 
 	src_text = "A toute et a tous";
 	dest_text = "Bonsoir";
@@ -65,7 +65,7 @@ void			check_ft_strcpy()
 	ft_dest = strdup(dest_text);
 	strcpy(dest, src);
 	ft_strcpy(ft_dest, ft_src);
-	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+	printf("   strcpy: %s\nft_strcpy: %s\n\n", dest, ft_dest);
 
 	src_text = "";
 	dest_text = "Bonsoir";
@@ -76,7 +76,7 @@ void			check_ft_strcpy()
 	ft_dest = strdup(dest_text);
 	strcpy(dest, src);
 	ft_strcpy(ft_dest, ft_src);
-	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+	printf("   strcpy: %s\nft_strcpy: %s\n\n", dest, ft_dest);
 
 	src_text = "Bonsoir";
 	dest_text = "";
@@ -87,9 +87,61 @@ void			check_ft_strcpy()
 	ft_dest = strdup(dest_text);
 	strcpy(dest, src);
 	ft_strcpy(ft_dest, ft_src);
-	printf("   strcpy: %s\nft)strcpy: %s\n\n", dest, ft_dest);
+	printf("   strcpy: %s\nft_strcpy: %s\n\n", dest, ft_dest);
 	printf("\n\t\t ----- END -----\n\n");
 }
+
+void			check_ft_strcmp()
+{
+	char		*s1;
+	char		*s2;
+
+	printf("\n\t\t ----- FT_STRCMP -----\n");
+	s1 = "Bonsoir";
+	s2 = "Bonsoir";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+
+	s1 = "Bonjoir";
+	s2 = "Bonsoir";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+	s1 = "Bonso";
+	s2 = "Bonsoir";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	s1 = "Bonsoir";
+	s2 = "Bonso";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+	s1 = "";
+	s2 = "Bonsoir";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+	s1 = "Bonsoir";
+	s2 = "";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+	s1 = "";
+	s2 = "";
+	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
+	printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+
+	printf("\n\t\t ----- END -----\n\n");
+}
+
 
 int				main(int argc, char **argv)
 {
@@ -97,24 +149,8 @@ int				main(int argc, char **argv)
 	{
 		printf("missing argument\n");
 	}
-	// char *str1;
-	// char *str2;
-	// char dest[8];
-	// char *src;
-
-	// src = "bonjour";
-	// printf("\n\n");
-	// printf("### FT_STRCPY ###\n");
-	// str1 = strdup(dest);
-	// str2 = strdup(dest);
-	// str1 = strcpy(str1, src);
-	// str2 = ft_strcpy(str2, src);
-	// printf("   strcpy: %s\n", str1);
-	// printf("ft_strcpy: %s\n", str2);
-	// printf("_____________\n");
-
-	// printf("\n\n");
-
+	check_ft_strcmp();
+	return (0);
 	// printf("### FT_STRCMP ###\n");
 	// int ret = strcmp("bonjour", "bonjour");
 	// printf("ret    strcmp : %d\n", ret);
