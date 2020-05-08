@@ -59,7 +59,6 @@ int				main(int argc, char **argv)
 	{
 		printf("missing argument\n");
 	}
-
 	// char *str1;
 	// char *str2;
 	// char dest[8];
