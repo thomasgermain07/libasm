@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include <fcntl.h>
 
 size_t			ft_strlen(const char *str);
