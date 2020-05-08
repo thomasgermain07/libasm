@@ -1,17 +1,21 @@
-global	ft_write
-section .text
-extern __errno_location
+	global		ft_write
+	extern 		__errno_location
+	section		.text
 
 ft_write:
 	jmp 		start
 
 start:
-	mov 		rax, 0x01
+	mov 		rax, 1
 	syscall
-	cmp 		rax, 0x00
+	cmp 		rax, 0
 	jl 		error
 	ret
 
 error:
-	call __errno_location
+	neg		rax
+	mov		rdx, rax
+	call 		__errno_location
+	mov		[rax], rdx
+	mov		rax, -1
 	ret

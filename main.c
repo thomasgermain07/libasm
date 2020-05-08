@@ -205,26 +205,51 @@ void			check_ft_read()
 	printf("\n\t\t ----- END -----\n\n");
 }
 
+void				check_ft_write()
+{
+	int ret;
+	int ft_ret;
+	char *str;
+
+	printf("\n\t\t ----- FT_WRITE -----\n\n");
+	str = "Bonsoir a toute et a tous";
+	printf("string : '%s'\n", str);
+	ret = write(1, str, ft_strlen(str));
+	printf(":    read returned : %d\n", ret);
+	ft_ret = ft_write(1, str, ft_strlen(str));
+	printf(": ft_read returned : %d\n\n", ft_ret);
+
+	str = "";
+	printf("string : '%s'\n", str);
+	ret = write(1, str, ft_strlen(str));
+	printf(":    read returned : %d\n", ret);
+	ft_ret = ft_write(1, str, ft_strlen(str));
+	printf(": ft_read returned : %d\n\n", ft_ret);
+
+	printf("--> Error with bad fd\n");	
+	str = "Ceci est un test";
+	printf("string : '%s'\n", str);
+	errno = 0;
+	ret = write(489, str, ft_strlen(str));
+	printf(":    read returned : %d : %s -> %d\n", ret, strerror(errno), errno);
+	errno = 0;	
+	ft_ret = ft_write(489, str, ft_strlen(str));
+	printf(": ft_read returned : %d : %s -> %d\n\n", ft_ret, strerror(errno), errno);
+	
+	printf("\n\t\t ----- END -----\n\n");
+}
+
 int				main(int argc, char **argv)
 {
-	check_ft_read();
-	return (0);
+	//check_ft_write();
+	//check_ft_read();
 
-	// char *s1;
-	// char *s2;
-	// char *s3;
-	// printf("\n\n");
-	// s1 = "bonjour";
-	// s2 = "";
-	// s3 = "uqwhe1233213-992138|\n";
-	// printf("### FT_WRITE ###\n");
-	// printf(" =    write: %zd\n", write(1, s1, strlen(s1)));
-	// printf(" = ft_write: %zd\n", ft_write(1, s1, strlen(s1)));
-	// printf(" =    write: %zd\n", write(1, s2, strlen(s2)));
-	// printf(" = ft_write: %zd\n", ft_write(1, s2, strlen(s2)));
-	// printf(" =    write: %zd\n", write(1, s3, strlen(s3)));
-	// printf(" = ft_write: %zd\n", ft_write(1, s3, strlen(s3)));
-	// printf("_____________\n");
+	char *str = strdup("Bonjour a toute et a tous");
+	char *ft_str = ft_strdup("Bonjour a toute et a tous");
+	printf("%s\n%s\n", str, ft_str);
+	free(str);
+	free(ft_str);
+	return (0);
 
 	// printf("\n\n");
 	// printf("### FT_STRDUP ###\n");
