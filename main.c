@@ -226,48 +226,6 @@ int				main(int argc, char **argv)
 	// printf(" = ft_write: %zd\n", ft_write(1, s3, strlen(s3)));
 	// printf("_____________\n");
 
-
-	// printf("\n\n");
-	// printf("### FT_READ ###\n");
-	// char	buffer[33];
-	// char	buffer1[33];
-	// int		r;
-	// int		r1;
-
-	// int		fd;
-	// int		fd1;
-	// fd = open(argv[1], O_RDONLY);
-	// fd1 = open(argv[1], O_RDONLY);
-	// r = read(fd, buffer, 10);
-	// r1 = ft_read(fd1, buffer1, 10);
-	// buffer[r] = 0;
-	// buffer1[r1] = 0;
-	// printf("   read,  r : %d,  buffer : %s\n", r, buffer);
-	// printf("ft_read, r1 : %d, buffer1 : %s\n", r1, buffer1);
-	// r = read(fd, buffer, 10);
-	// r1 = ft_read(fd1, buffer1, 10);
-	// buffer[r] = 0;
-	// buffer1[r1] = 0;
-	// printf("   read,  r : %d,  buffer : %s\n", r, buffer);
-	// printf("ft_read, r1 : %d, buffer1 : %s\n", r1, buffer1);
-	// r = read(fd, buffer, 10);
-	// r1 = ft_read(fd1, buffer1, 10);
-	// buffer[r] = 0;
-	// buffer1[r1] = 0;
-	// printf("   read,  r : %d,  buffer : %s\n", r, buffer);
-	// printf("ft_read, r1 : %d, buffer1 : %s\n", r1, buffer1);
-	// r = read(fd, buffer, 10);
-	// r1 = ft_read(fd1, buffer1, 10);
-	// buffer[r] = 0;
-	// buffer1[r1] = 0;
-	// printf("   read,  r : %d,  buffer : %s\n", r, buffer);
-	// printf("ft_read, r1 : %d, buffer1 : %s\n", r1, buffer1);
-	// close(fd);
-	// close(fd1);
-	// printf("_____________\n");
-
-	// return (0);
-
 	// printf("\n\n");
 	// printf("### FT_STRDUP ###\n");
 	// s1 = strdup(s1);
