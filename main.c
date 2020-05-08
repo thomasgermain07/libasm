@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
+#include <errno.h>
 
 size_t			ft_strlen(const char *str);
 char			*ft_strcpy(char *dst, char *src);
@@ -142,43 +143,71 @@ void			check_ft_strcmp()
 	printf("\n\t\t ----- END -----\n\n");
 }
 
+void			ft_bzero(void *s, size_t n)
+{
+	size_t		i;
+
+	i = 0;
+	if (n == 0)
+		return ;
+	while (i < n)
+	{
+		((char *)s)[i] = 0;
+		i++;
+	}
+}
+
+void			check_ft_read()
+{
+	int			fd = open("text.txt", O_RDONLY);
+	int			ft_fd = open("text.txt", O_RDONLY);
+	int			ret;
+	int			ft_ret;
+	char		buffer[30];
+	char		ft_buffer[30];
+
+	printf("\n\t\t ----- FT_STRCMP -----\n");
+
+	for (int i = 0; i < 3; i++)
+	{
+		ft_bzero(buffer, 30);
+		ft_bzero(ft_buffer, 30);
+		ret = read(fd, buffer, 15);
+		ft_ret = ft_read(ft_fd, ft_buffer, 15);
+		print("   read: '%s' -> %d\n", buffer, ret);
+		print("ft_read: '%s' -> %d\n\n", ft_buffer, ft_ret);
+	}
+
+	print("error bad fd test\n");
+	ft_bzero(buffer, 30);
+	ft_bzero(ft_buffer, 30);
+	errno = 0;
+	ret = read(-1, buffer, 15);
+	print("   read: errno: %s -> %d\n", errno, ret);
+	print("buffer: '%s'\n", buffer);
+	errno = 0;
+	ft_ret = ft_read(-1, ft_buffer, 15);
+	print("ft_read: errno: %s -> %d\n", errno, ft_ret);
+	print("buffer: '%s'\n",ft_buffer);
+
+	print("error bad buffer test\n");
+	ft_bzero(buffer, 30);
+	ft_bzero(ft_buffer, 30);
+	errno = 0;
+	ret = read(fd, 250, 15);
+	print("   read: errno: %s -> %d\n", errno, ret);
+	print("buffer: '%s'\n", buffer);
+	errno = 0;
+	ft_ret = ft_read(ft_fd, 250, 15);
+	print("ft_read: errno: %s -> %d\n", errno, ft_ret);
+	print("buffer: '%s'\n",ft_buffer);
+
+	printf("\n\t\t ----- END -----\n\n");
+}
 
 int				main(int argc, char **argv)
 {
-	if (argc != 2)
-	{
-		printf("missing argument\n");
-	}
-	check_ft_strcmp();
 	return (0);
-	// printf("### FT_STRCMP ###\n");
-	// int ret = strcmp("bonjour", "bonjour");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("bonjour", "bonjour");
-	// printf("ret ft_strcmp : %d\n", ret);
-	// ret = strcmp("bonj", "bonjour");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("bonj", "bonjour");
-	// printf("ret ft_strcmp : %d\n", ret);
-	// ret = strcmp("bonjour", "bonj");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("bonjour", "bonj");
-	// printf("ret ft_strcmp : %d\n", ret);
-	// ret = strcmp("bonjkur", "bonjour");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("bonjkur", "bonjour");
-	// printf("ret ft_strcmp : %d\n", ret);
-	// ret = strcmp("", "");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("", "");
-	// printf("ret ft_strcmp : %d\n", ret);
-	// ret = strcmp("\xff", "\xff\xfe");
-	// printf("ret    strcmp : %d\n", ret);
-	// ret = ft_strcmp("\xff", "\xff\xfe");
-	// printf("ret ft_strcmp : %d\n", ret);
-
-
-	// printf("_____________\n");
 
 	// char *s1;
 	// char *s2;
