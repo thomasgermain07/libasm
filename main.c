@@ -186,7 +186,7 @@ void			check_ft_read()
 	printf("buffer: '%s'\n", buffer);
 	errno = 0;
 	ft_ret = ft_read(-1, ft_buffer, 15);
-	printf("ft_read: errno: %s -> %d\n", errno, ft_ret);
+	printf("ft_read: errno: %s -> %d\n", strerror(errno), ft_ret);
 	printf("buffer: '%s'\n",ft_buffer);
 
 	printf("error bad buffer test\n");
@@ -198,7 +198,7 @@ void			check_ft_read()
 	printf("buffer: '%s'\n", buffer);
 	errno = 0;
 	ft_ret = ft_read(ft_fd, 250, 15);
-	printf("ft_read: errno: %s -> %d\n", errno, ft_ret);
+	printf("ft_read: errno: %s -> %d\n", strerror(errno), ft_ret);
 	printf("buffer: '%s'\n",ft_buffer);
 
 	printf("\n\t\t ----- END -----\n\n");
