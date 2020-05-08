@@ -206,6 +206,7 @@ void			check_ft_read()
 
 int				main(int argc, char **argv)
 {
+	check_ft_read();
 	return (0);
 
 	// char *s1;
