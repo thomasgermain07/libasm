@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -182,7 +183,7 @@ void			check_ft_read()
 	ft_bzero(ft_buffer, 30);
 	errno = 0;
 	ret = read(-1, buffer, 15);
-	printf("   read: errno: %s -> %d\n", errno, ret);
+	printf("   read: errno: %s -> %d\n", strerror(errno), ret);
 	printf("buffer: '%s'\n", buffer);
 	errno = 0;
 	ft_ret = ft_read(-1, ft_buffer, 15);
@@ -194,7 +195,7 @@ void			check_ft_read()
 	ft_bzero(ft_buffer, 30);
 	errno = 0;
 	ret = read(fd, 250, 15);
-	printf("   read: errno: %s -> %d\n", errno, ret);
+	printf("   read: errno: %s -> %d\n", strerror(errno), ret);
 	printf("buffer: '%s'\n", buffer);
 	errno = 0;
 	ft_ret = ft_read(ft_fd, 250, 15);
