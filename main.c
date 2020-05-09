@@ -205,7 +205,7 @@ void			check_ft_read()
 	printf("\n\t\t ----- END -----\n\n");
 }
 
-void				check_ft_write()
+void			check_ft_write()
 {
 	int ret;
 	int ft_ret;
@@ -239,24 +239,47 @@ void				check_ft_write()
 	printf("\n\t\t ----- END -----\n\n");
 }
 
-int				main(int argc, char **argv)
-{
-	//check_ft_write();
-	//check_ft_read();
 
-	char *str = strdup("Bonjour a toute et a tous");
-	char *ft_str = ft_strdup("Bonjour a toute et a tous");
+void			check_ft_strdup()
+{
+	printf("\n\t\t ----- FT_WRITE -----\n\n");
+
+	char *text;
+
+	text = "Bonsoir a toute et a tous";
+	printf("original text : '%s'\n", text);
+	char *str = strdup(text);
+	char *ft_str = ft_strdup(text);
 	printf("%s\n%s\n", str, ft_str);
 	free(str);
 	free(ft_str);
-	return (0);
 
-	// printf("\n\n");
-	// printf("### FT_STRDUP ###\n");
-	// s1 = strdup(s1);
-	// s1 = ft_strdup(s1);
-	// printf("   strdup: %s\n", s1);
-	// printf("ft_strdup: %s\n", s1);
-	// printf("_____________\n");
+	text = "";
+	printf("original text : '%s'\n", text);
+	str = strdup(text);
+	ft_str = ft_strdup(text);
+	printf("%s\n%s\n", str, ft_str);
+	free(str);
+	free(ft_str);
+
+	text = "Deuxieme test ca doit fonctionner :P";
+	printf("original text : '%s'\n", text);
+	str = strdup(text);
+	ft_str = ft_strdup(text);
+	printf("%s\n%s\n", str, ft_str);
+	free(str);
+	free(ft_str);
+
+	printf("\n\t\t ----- END -----\n");
+}
+
+int				main(int argc, char **argv)
+{
+	check_ft_read();
+	check_ft_strcmp();
+	check_ft_strcpy();
+	check_ft_strdup();
+	check_ft_strlen();
+	check_ft_write();
 	return (0);
 }

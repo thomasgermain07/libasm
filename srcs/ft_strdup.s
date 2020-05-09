@@ -7,18 +7,18 @@
 ft_strdup:
 		call		ft_strlen
 		push		rdi
-		inc		rax
-		mov		rdi, rax
+		inc			rax
+		mov			rdi, rax
 		call		malloc
 		test		eax, eax
-		jz		failed
-		pop		rdi
-		mov		rsi, rdi
-		mov		rdi, rax
+		jz			failed
+		pop			rdi
+		mov			rsi, rdi
+		mov			rdi, rax
 		call		ft_strcpy
 		ret
 
 failed:
-		mov		rax, 0
-		pop		rdi
+		mov			rax, 0
+		pop			rdi
 		ret
