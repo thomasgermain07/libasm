@@ -97,48 +97,43 @@ void			check_ft_strcmp()
 	char		*s1;
 	char		*s2;
 
-	printf("\n\t\t ----- FT_STRCMP -----\n");
-	s1 = "Bonsoir";
-	s2 = "Bonsoir";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("\n\t\t ----- FT_STRCMP -----\n\n");
 
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Bonsoir", "Bonsoir");
+	printf("   strcmp: %d\n", strcmp("Bonsoir", "Bonsoir"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Bonsoir", "Bonsoir"));
 
-	s1 = "Bonjoir";
-	s2 = "Bonsoir";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Z", "A");
+	printf("   strcmp: %d\n", strcmp("Z", "A"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Z", "A"));
 
-	s1 = "Bonso";
-	s2 = "Bonsoir";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
-	s1 = "Bonsoir";
-	s2 = "Bonso";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("s1 -> '%s' : s2 -> '%s'\n", "A", "Z");
+	printf("   strcmp: %d\n", strcmp("A", "Z"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("A", "Z"));
 
-	s1 = "";
-	s2 = "Bonsoir";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Bonjoir", "Bonsoir");
+	printf("   strcmp: %d\n", strcmp("Bonjoir", "Bonsoir"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Bonjoir", "Bonsoir"));
 
-	s1 = "Bonsoir";
-	s2 = "";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Bonso", "Bonsoir");
+	printf("   strcmp: %d\n", strcmp("Bonso", "Bonsoir"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Bonso", "Bonsoir"));
+	
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Bonsoir", "Bonso");
+	printf("   strcmp: %d\n", strcmp("Bonsoir", "Bonso"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Bonsoir", "Bonso"));
 
-	s1 = "";
-	s2 = "";
-	printf("s1 -> '%s' : s2 -> '%s'\n", s1, s2);
-	printf("   strcmp: %d\n", strcmp(s1, s2));
-	printf("ft_strcmp: %d\n\n", ft_strcmp(s1, s2));
+	printf("s1 -> '%s' : s2 -> '%s'\n", "", "Bonsoir");
+	printf("   strcmp: %d\n", strcmp("", "Bonsoir"));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("", "Bonsoir"));
+
+	printf("s1 -> '%s' : s2 -> '%s'\n", "Bonsoir", "");
+	printf("   strcmp: %d\n", strcmp("Bonsoir", ""));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("Bonsoir", ""));
+
+	printf("s1 -> '%s' : s2 -> '%s'\n", "", "");
+	printf("   strcmp: %d\n", strcmp("", ""));
+	printf("ft_strcmp: %d\n\n", ft_strcmp("", ""));
 
 	printf("\n\t\t ----- END -----\n\n");
 }
@@ -247,7 +242,7 @@ void			check_ft_write()
 
 void			check_ft_strdup()
 {
-	printf("\n\t\t ----- FT_WRITE -----\n\n");
+	printf("\n\t\t ----- FT_STRDUP -----\n\n");
 
 	char *text;
 
@@ -255,7 +250,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	char *str = strdup(text);
 	char *ft_str = ft_strdup(text);
-	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
+	printf("   strdup: '%s'\nft_strdup: '%s'\n\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -263,7 +258,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	str = strdup(text);
 	ft_str = ft_strdup(text);
-	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
+	printf("   strdup: '%s'\nft_strdup: '%s'\n\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -271,7 +266,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	str = strdup(text);
 	ft_str = ft_strdup(text);
-	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
+	printf("   strdup: '%s'\nft_strdup: '%s'\n\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -282,9 +277,9 @@ int				main(int argc, char **argv)
 {
 	check_ft_read();
 	check_ft_strcmp();
-	// check_ft_strcpy();
-	// check_ft_strdup();
-	// check_ft_strlen();
+	check_ft_strcpy();
+	check_ft_strdup();
+	check_ft_strlen();
 	check_ft_write();
 	return (0);
 }
