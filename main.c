@@ -8,8 +8,8 @@
 size_t			ft_strlen(const char *str);
 char			*ft_strcpy(char *dst, char *src);
 int				ft_strcmp(const char *s1, const char *s2);
-ssize_t			ft_read(int fd, void *buf, size_t nbyte);
-ssize_t			ft_write(int fd, const void *buf, size_t nbyte);
+size_t			ft_read(int fd, void *buf, size_t nbyte);
+size_t			ft_write(int fd, const void *buf, size_t nbyte);
 char			*ft_strdup(const char *str);
 
 void			check_ft_strlen()
@@ -165,17 +165,20 @@ void			check_ft_read()
 	int			ft_ret;
 	char		buffer[30];
 	char		ft_buffer[30];
+	int			value;
 
 	printf("\n\t\t ----- FT_READ -----\n");
 
+	value = 15;
 	for (int i = 0; i < 3; i++)
 	{
 		ft_bzero(buffer, 30);
 		ft_bzero(ft_buffer, 30);
-		ret = read(fd, buffer, 15);
-		ft_ret = ft_read(ft_fd, ft_buffer, 15);
+		ret = read(fd, buffer, value);
+		ft_ret = ft_read(ft_fd, ft_buffer, value);
 		printf("   read: '%s' -> %d\n", buffer, ret);
 		printf("ft_read: '%s' -> %d\n\n", ft_buffer, ft_ret);
+		value += 5;
 	}
 
 	printf("---> error bad fd test\n");
@@ -202,6 +205,8 @@ void			check_ft_read()
 	printf("ft_read: errno: %d %s -> %d\n", errno, strerror(errno), ft_ret);
 	printf("buffer: '%s'\n\n",ft_buffer);
 
+	close(fd);
+	close(ft_fd);
 	printf("\n\t\t ----- END -----\n\n");
 }
 
@@ -215,26 +220,26 @@ void			check_ft_write()
 	str = "Bonsoir a toute et a tous";
 	printf("string : '%s'\n", str);
 	ret = write(1, str, ft_strlen(str));
-	printf(":    read returned : %d\n", ret);
+	printf(":    write returned : %d\n", ret);
 	ft_ret = ft_write(1, str, ft_strlen(str));
-	printf(": ft_read returned : %d\n\n", ft_ret);
+	printf(": ft_write returned : %d\n\n", ft_ret);
 
 	str = "";
 	printf("string : '%s'\n", str);
 	ret = write(1, str, ft_strlen(str));
-	printf(":    read returned : %d\n", ret);
+	printf(":    write returned : %d\n", ret);
 	ft_ret = ft_write(1, str, ft_strlen(str));
-	printf(": ft_read returned : %d\n\n", ft_ret);
+	printf(": ft_write returned : %d\n\n", ft_ret);
 
 	printf("--> Error with bad fd\n");	
 	str = "Ceci est un test";
 	printf("string : '%s'\n", str);
 	errno = 0;
 	ret = write(489, str, ft_strlen(str));
-	printf(":    read returned : %d : %s -> %d\n", ret, strerror(errno), errno);
+	printf(":    write returned : %d : %s -> %d\n", ret, strerror(errno), errno);
 	errno = 0;	
 	ft_ret = ft_write(489, str, ft_strlen(str));
-	printf(": ft_read returned : %d : %s -> %d\n\n", ft_ret, strerror(errno), errno);
+	printf(": ft_write returned : %d : %s -> %d\n\n", ft_ret, strerror(errno), errno);
 	
 	printf("\n\t\t ----- END -----\n\n");
 }
@@ -250,7 +255,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	char *str = strdup(text);
 	char *ft_str = ft_strdup(text);
-	printf("%s\n%s\n", str, ft_str);
+	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -258,7 +263,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	str = strdup(text);
 	ft_str = ft_strdup(text);
-	printf("%s\n%s\n", str, ft_str);
+	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -266,7 +271,7 @@ void			check_ft_strdup()
 	printf("original text : '%s'\n", text);
 	str = strdup(text);
 	ft_str = ft_strdup(text);
-	printf("%s\n%s\n", str, ft_str);
+	printf("   write: '%s'\nft_write: '%s'\n", str, ft_str);
 	free(str);
 	free(ft_str);
 
@@ -277,9 +282,9 @@ int				main(int argc, char **argv)
 {
 	check_ft_read();
 	check_ft_strcmp();
-	check_ft_strcpy();
-	check_ft_strdup();
-	check_ft_strlen();
+	// check_ft_strcpy();
+	// check_ft_strdup();
+	// check_ft_strlen();
 	check_ft_write();
 	return (0);
 }
